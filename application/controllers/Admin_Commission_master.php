@@ -151,7 +151,7 @@ class Admin_Commission_master extends CI_Controller {
     public function edit($id) {
         if ($id) {
             $data['group']	  = $this->db->get_where('tbl_comission_master', array('group_id' => $id))->result();
-            $this->load->view('admin\commission_master\edit_group',$data);
+            $this->load->view('admin/commission_master/edit_group',$data);
         }else {
             $this->load->view('');
         }
