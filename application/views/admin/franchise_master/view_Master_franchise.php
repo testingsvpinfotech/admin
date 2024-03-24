@@ -72,7 +72,7 @@
                                             <th scope="col">Franchise Created</th>
                                             <th scope="col">Constitution of business</th>
                                             <?php if ($this->session->userdata("userType") == 1) { ?>
-                                            <th scope="col">Password</th>
+                                            <!-- <th scope="col">Password</th> -->
                                             <th scope="col">Action</th>
                                             <?php } ?>
                                         </tr>
@@ -101,7 +101,7 @@
                                                         echo date_format($date,"d/m/Y"); ?></td>
                                                     <td><?php echo $cust['constitution_of_business']; ?></td>
                                                     <?php if ($this->session->userdata("userType") == 1) { ?>
-                                                    <td><?php echo $cust['password']; ?></td>
+                                                    <!-- <td><?php echo $cust['password']; ?></td> -->
                                                
                                                    
 

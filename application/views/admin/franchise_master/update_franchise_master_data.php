@@ -59,7 +59,14 @@
                                             <input type="text" name="franchise_name" placeholder="Enter Name" value="<?php echo $customer->customer_name ; ?>" class="form-control">
                                         </div>
                                     </div>
-                                  
+                                    <div class="col-md-3">
+                                            <div class="form-row">
+                                                <div class="form-group col-md-12">
+                                                    <label>Password</label>
+                                                    <input type="Password" class="form-control" name="password" placeholder="Enter Password" value="">
+                                                </div>
+                                            </div>
+                                        </div>
                                      <div class="col-md-12"> <hr></div><br>
                                 </div>
 

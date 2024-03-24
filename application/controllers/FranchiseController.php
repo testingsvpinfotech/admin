@@ -223,7 +223,7 @@ class FranchiseController extends CI_Controller
 
         $data = array(
             'cid' => $this->input->post('fid'),
-            'password' => $this->input->post('password'),
+            'password' => md5($this->input->post('password')),
             'customer_name' => $this->input->post('franchise_name'), //****Personal Info
             'email' => $this->input->post('email'),
             'address' => $this->input->post('address'),
@@ -419,7 +419,7 @@ class FranchiseController extends CI_Controller
             $whr1 = array('customer_id' => $customer_id);
 
             $data = array(
-                'password' => $this->input->post('password'),
+                
                 'customer_name' => $this->input->post('franchise_name'), //****Personal Info
                 'email' => $this->input->post('email'),
                 'address' => $this->input->post('address'),
@@ -434,6 +434,9 @@ class FranchiseController extends CI_Controller
                 'sale_person' => $this->input->post('sale_person'),
                 'franchise_booking_type' => $this->input->post('franchise_booking_type')
             );
+            if(!empty($this->input->post('password'))){
+                $data['password'] = md5($this->input->post('password'));
+            }
             //print_r($data);
             $franchise = $this->basic_operation_m->update('tbl_customers', $data, $whr1);
             //echo $this->db->last_query();exit;

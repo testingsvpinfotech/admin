@@ -136,7 +136,7 @@ class MasterFranchiseController extends CI_Controller
 
                 $data = array(
                     'cid' => $this->input->post('fid'),
-                    'password' => $this->input->post('password'),
+                    'password' => md5($this->input->post('password')),
                     'customer_name' => $this->input->post('franchise_name'), //****Personal Info
                     'email' => $this->input->post('email'),
                     'address' => $this->input->post('address'),
@@ -340,6 +340,9 @@ class MasterFranchiseController extends CI_Controller
                 'register_date' => $date,
                 'franchise_booking_type' => $this->input->post('franchise_booking_type')
             );
+            if(!empty($this->input->post('password'))){
+                $data['password'] = md5($this->input->post('password'));
+            }
             //   print_r($data);
             $result = $this->basic_operation_m->update('tbl_customers', $data, $whr2);
 

@@ -56,7 +56,7 @@
                                             <div class="form-row">
                                                 <div class="form-group col-md-12">
                                                     <label>Password</label>
-                                                    <input type="Password" class="form-control" name="password" placeholder="Enter Password" value="<?php echo $customer->password; ?>">
+                                                    <input type="Password" class="form-control" name="password" placeholder="Enter Password" value="">
                                                 </div>
                                             </div>
                                         </div>
@@ -64,7 +64,7 @@
                                             <div class="form-row">
                                                 <div class="form-group col-md-12">
                                                     <label>Confirm Password</label>
-                                                    <input type="password" class="form-control" name="passconf" value="<?php echo $customer->password; ?>" placeholder="Enter Confirm Password">
+                                                    <input type="password" class="form-control" name="passconf" value="" placeholder="Enter Confirm Password">
                                                 </div>
                                             </div>
                                         </div>

@@ -89,7 +89,7 @@
                                             <th scope="col">Sale Person Branch</th>
                                             <th scope="col">Franchise Created</th>
                                              <?php if ($this->session->userdata("userType") == 1) { ?>
-                                                <th scope="col">Password</th>
+                                                <!-- <th scope="col">Password</th> -->
                                            
                                             <th scope="col">Action</th>
                                             <?php } ?>
@@ -155,7 +155,7 @@ $franchise_id = $cust['franchise_id'];
                                                     $date=date_create($cust['register_date']);
                                                     echo date_format($date,"d/m/Y"); ?></td>
                                                     <?php if ($this->session->userdata("userType") == 1) { ?>
-                                                    <td><?php echo $cust['password']; ?></td>
+                                                    <!-- <td><?php echo $cust['password']; ?></td> -->
                                                
                                                    
 
