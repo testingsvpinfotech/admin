@@ -238,6 +238,7 @@ class FranchiseController extends CI_Controller
             'sale_person' => $this->input->post('sale_person'),
             'customer_type' => 2,
             'register_date' => $date,
+            'franchise_booking_type' => $this->input->post('franchise_booking_type')
         );
 
         $result = $this->db->insert('tbl_customers', $data);
@@ -283,6 +284,16 @@ class FranchiseController extends CI_Controller
             'sale_person' => $this->input->post('sale_person')
 
         );
+        if($this->input->post('franchise_booking_type')==2){
+                
+            $data1['credit_limit'] = "0.00";
+            $data1['credit_days']= "0";
+            $data1['commision_id'] = "0";
+        }else{
+            $data1['credit_limit'] = $this->input->post('credit_limit');
+            $data1['credit_days']= $this->input->post('credit_days');
+            $data1['commision_id'] = $this->input->post('commision_id');
+        }
        
 
         $result = $this->db->insert('tbl_franchise', $data1);
