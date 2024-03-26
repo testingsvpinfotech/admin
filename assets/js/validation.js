@@ -27,11 +27,6 @@ $(document).ready(function(){
                 decimal_or_numbers: true,
                 maxlength: 50,
             },
-            pickup_charges: {
-                required: true,
-                decimal_or_numbers: true,
-                maxlength: 50,
-            },
             delivery_commission: {
                 required: true,
                 decimal_or_numbers: true,
@@ -55,11 +50,6 @@ $(document).ready(function(){
                 required: "Enter Booking Commission Percentage",
                 maxlength: "Maxlength is 50 character",
                 
-            },
-            pickup_charges: {
-                required: "Enter Pickup Charges",
-                maxlength: "Maxlength is 50 character",
-               
             },
             delivery_commission: {
                 required: "Enter Delivery Commission",
@@ -124,11 +114,6 @@ $(document).ready(function(){
                 decimal_or_numbers: true,
                 maxlength: 50,
             },
-            pickup_charges: {
-                required: true,
-                decimal_or_numbers: true,
-                maxlength: 50,
-            },
             delivery_commission: {
                 required: true,
                 decimal_or_numbers: true,
@@ -146,11 +131,6 @@ $(document).ready(function(){
                 required: "Enter Booking Commission Percentage",
                 maxlength: "Maxlength is 50 character",
                 
-            },
-            pickup_charges: {
-                required: "Enter Pickup Charges",
-                maxlength: "Maxlength is 50 character",
-               
             },
             delivery_commission: {
                 required: "Enter Delivery Commission",

@@ -35,10 +35,9 @@
                                             <tr>
                                                 <th scope="col">Sr.</th>
                                                 <th scope="col">Group Name</th>
-                                                <th scope="col">Booking Commission </th>
-                                                <th scope="col">Pickup Charges</th>
-                                                <th scope="col">Delivery Commission</th>
-                                                <th scope="col">Door Delivery Share Amt</th>
+                                                <th scope="col">Booking Commission (% of Basic Freight)</th>
+                                                <th scope="col">Delivery Commission (% of Basic Freight)</th>
+                                                <th scope="col">Door Delivery share (% of value)</th>
                                                 <th scope="col">Action</th>
                                             </tr>
                                         </thead>
@@ -50,8 +49,7 @@
                                                 <td><?php echo $cnt; ?></td>
                                                 <td><?php echo $value['group_name']; ?></td>
                                                 <td><?php echo $value['booking_commission']; ?></td>
-                                                <td><?php echo $value['pickup_charges']; ?></td>
-                                                <td><?php echo $value['booking_commission']; ?></td>
+                                                <td><?php echo $value['delivery_commission']; ?></td>
                                                 <td><?php echo $value['door_delivery_share']; ?></td>
                                     
                                                 <td>

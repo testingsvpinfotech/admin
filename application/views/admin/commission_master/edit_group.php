@@ -55,24 +55,16 @@
                                                     <div class="form-group row">
                                                      
                                                         <div class="col-sm-3">
-                                                        <label for="ac_name" class="col-form-label">Booking Commission (%)</label>
+                                                        <label for="ac_name" class="col-form-label">Booking Commission (% of Basic Freight)</label>
                                                         <input class="form-control" type="text" id="booking_commission" <?php echo set_value('booking_commission'); ?> name="booking_commission" value="<?= $group[0]->booking_commission; ?>" >
                                                         </div>
-
-                                                       
                                                         <div class="col-sm-3">
-                                                        <label for="ac_name" class="col-form-label">Pickup Charges </label>
-                                                        <input type="text" id="pickup_charges" class="form-control" <?php echo set_value('pickup_charges'); ?> name="pickup_charges" value="<?= $group[0]->pickup_charges; ?>">
-                                                        </div>
-
-                                                       
-                                                        <div class="col-sm-3">
-                                                        <label  for="ac_name" class="col-form-label">Delivery Commission (%)</label>
+                                                        <label  for="ac_name" class="col-form-label">Delivery Commission (% of Basic Freight)</label>
                                                         <input type="text" id="delivery_commission" class="form-control" <?php echo set_value('delivery_commission'); ?> name="delivery_commission" value="<?= $group[0]->delivery_commission;; ?>">
                                                         </div>
                                                         
                                                         <div class="col-sm-3">
-                                                        <label for="ac_name" class="col-form-label">Door Delivery Share (%)</label>
+                                                        <label for="ac_name" class="col-form-label">Door Delivery share (% of value)</label>
                                                         <input type="text" id="door_delivery" class="form-control"  <?php echo set_value('door_delivery'); ?> name="door_delivery" value="<?= $group[0]->door_delivery_share;; ?>">
                                                         </div>
                                                         </div>

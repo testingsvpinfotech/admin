@@ -18,7 +18,7 @@ class Admin_Commission_master extends CI_Controller {
         $data =[];
 		$user_id = $this->session->userdata("userId");
 		$data['groups'] = $this->db
-                                ->select('group_id, group_name, booking_commission, pickup_charges, delivery_commission, door_delivery_share')
+                                ->select('group_id, group_name, booking_commission, delivery_commission, door_delivery_share')
                                 ->where('is_deleted', false)
                                 ->get('tbl_comission_master')
                                 ->result_array();
@@ -35,13 +35,11 @@ class Admin_Commission_master extends CI_Controller {
 
                 $data = array(
                     'booking_commission' => $this->input->post('booking_commission'),
-                    'pickup_charges' => $this->input->post('pickup_charges'),
-                    'delivery_commission' => $this->input->post('booking_commission'),
+                    'delivery_commission' => $this->input->post('delivery_commission'),
                     'door_delivery_share' => $this->input->post('door_delivery'),
                 );
     
                 $this->form_validation->set_rules('booking_commission', 'Booking_commission', 'required');
-                $this->form_validation->set_rules('pickup_charges', 'Pickup_charges', 'required');
                 $this->form_validation->set_rules('delivery_commission', 'Delivery_commission', 'required');
                 $this->form_validation->set_rules('door_delivery', 'Door_delivery', 'required|min_length[2]');
     
@@ -88,14 +86,12 @@ class Admin_Commission_master extends CI_Controller {
                 $data = array(
                     'group_name' => $this->input->post('group_name'),
                     'booking_commission' => $this->input->post('booking_commission'),
-                    'pickup_charges' => $this->input->post('pickup_charges'),
-                    'delivery_commission' => $this->input->post('booking_commission'),
+                    'delivery_commission' => $this->input->post('delivery_commission'),
                     'door_delivery_share' => $this->input->post('door_delivery'),
                 );
     
                 $this->form_validation->set_rules('group_name', 'group_Name', 'required');
                 $this->form_validation->set_rules('booking_commission', 'Booking_commission', 'required');
-                $this->form_validation->set_rules('pickup_charges', 'Pickup_charges', 'required');
                 $this->form_validation->set_rules('delivery_commission', 'Delivery_commission', 'required');
                 $this->form_validation->set_rules('door_delivery', 'Door_delivery', 'required|min_length[2]');
     
@@ -116,14 +112,14 @@ class Admin_Commission_master extends CI_Controller {
                     }else{
                         $allValuesLessThan30 = true;
                         foreach ($data as $key => $value) {
-                            if ($key !== 'group_name' && $key !== 'pickup_charges' && $value >= 30) {
+                            if ($key !== 'group_name' && $value >= 30) {
                                 $allValuesLessThan30 = false;
                                 break;
                             }
                         }
                         if ($allValuesLessThan30) {
                             $this->db->insert('tbl_comission_master', $data);
-                            //echo $this->db->last_query(); // Debugging purposes
+                            //echo $this->db->last_query(); die;// Debugging purposes
     
                             $response = array(
                                 'success' => true,
