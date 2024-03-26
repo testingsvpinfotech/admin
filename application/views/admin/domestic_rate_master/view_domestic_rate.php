@@ -58,6 +58,7 @@
                                                 <th>Rate</th>
                                                 <th>Minimum Weight</th>
                                                 <th>Minimum Freight</th>
+                                                <th>Pickup Charges</th>
                                                 <th>Rate Type</th>
                                                 <?php if($this->session->userdata("userType") == 26 or $this->session->userdata("userType") == 1){ ?>     
 												<th>Action</th>		
@@ -116,6 +117,7 @@
 												<td><?php echo $value['rate']; ?></td>
 												<td><?php echo $value['minimum_weight']; ?></td>
                                                 <td><?php echo $value['minimum_rate']; ?></td>
+                                                <td><?php echo $value['pickup_charges']; ?></td>
                                                 <td><?php if($value['fixed_perkg']==0){
                                                     echo "Fixed";
                                                 }else if($value['fixed_perkg']==1){

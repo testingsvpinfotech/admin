@@ -402,7 +402,7 @@ class Admin_domestic_rate_manager extends CI_Controller {
 		
 		if($alldata['fixed_perkg']>0)
 		{
-			$alldata['weight_slab'] = ((round($alldata['weight_range_to']) *1000) - (round($alldata['weight_range_from']) *1000));
+			$alldata['weight_slab'] = ((round((float)$alldata['weight_range_to']) *1000) - (round((float)$alldata['weight_range_from']) *1000));
 		}
 
 		// echo "<pre>";print_r($alldata);exit;

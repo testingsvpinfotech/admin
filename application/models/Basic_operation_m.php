@@ -610,6 +610,7 @@ class Basic_operation_m extends CI_Model
 											'from_zone_id' => $data['from_zone_id'],
 											'to_zone_id' => $data['to_zone_id'],
 											'minimum_rate' => $data['minimum_rate'],
+											'pickup_charges' => $data['pickup_charges'],
 											'minimum_weight' => $data['minimum_weight'],
 											'mode_id' => $data['mode_id'],
 											'doc_type' => $data['doc_type'],
@@ -652,6 +653,7 @@ class Basic_operation_m extends CI_Model
 											'from_zone_id' => $data['from_zone_id'],
 											'to_zone_id' => $data['to_zone_id'],
 											'minimum_rate' => $data['minimum_rate'],
+											'pickup_charges' => $data['pickup_charges'],
 											'minimum_weight' => $data['minimum_weight'],
 											'mode_id' => $data['mode_id'],
 											'doc_type' => $data['doc_type'],
@@ -688,6 +690,7 @@ class Basic_operation_m extends CI_Model
 									'from_zone_id' => $data['from_zone_id'],
 									'to_zone_id' => $data['to_zone_id'],
 									'minimum_rate' => $data['minimum_rate'],
+									'pickup_charges' => $data['pickup_charges'],
 									'minimum_weight' => $data['minimum_weight'],
 									'mode_id' => $data['mode_id'],
 									'doc_type' => $data['doc_type'],
@@ -725,6 +728,7 @@ class Basic_operation_m extends CI_Model
 										'to_zone_id' => $data['to_zone_id'],
 										'minimum_rate' => $data['minimum_rate'],
 										'minimum_weight' => $data['minimum_weight'],
+										'pickup_charges' => $data['pickup_charges'],
 										'mode_id' => $data['mode_id'],
 										'tat' => $data['tat'],
 										'doc_type' => $data['doc_type'],
@@ -761,6 +765,7 @@ class Basic_operation_m extends CI_Model
 									'to_zone_id' => $data['to_zone_id'],
 									'minimum_rate' => $data['minimum_rate'],
 									'minimum_weight' => $data['minimum_weight'],
+									'pickup_charges' => $data['pickup_charges'],
 									'tat' => $data['tat'],
 									'mode_id' => $data['mode_id'],
 									'doc_type' => $data['doc_type'],
@@ -793,6 +798,7 @@ class Basic_operation_m extends CI_Model
 							'to_zone_id' => $data['to_zone_id'],
 							'minimum_rate' => $data['minimum_rate'],
 							'minimum_weight' => $data['minimum_weight'],
+							'pickup_charges' => $data['pickup_charges'],
 							'tat' => $data['tat'],
 							'mode_id' => $data['mode_id'],
 							'doc_type' => $data['doc_type'],
@@ -822,6 +828,7 @@ class Basic_operation_m extends CI_Model
 							'to_zone_id' => $data['to_zone_id'],
 							'minimum_rate' => $data['minimum_rate'],
 							'minimum_weight' => $data['minimum_weight'],
+							'pickup_charges' => $data['pickup_charges'],
 							'mode_id' => $data['mode_id'],
 							'doc_type' => $data['doc_type'],
 							'applicable_from' => date("Y-m-d", strtotime($data['applicable_from'])),
@@ -854,6 +861,7 @@ class Basic_operation_m extends CI_Model
 									'to_zone_id' => $data['to_zone_id'],
 									'minimum_rate' => $data['minimum_rate'],
 									'minimum_weight' => $data['minimum_weight'],
+									'pickup_charges' => $data['pickup_charges'],
 									'mode_id' => $data['mode_id'],
 									'tat' => $data['tat'],
 									'doc_type' => $data['doc_type'],
@@ -886,6 +894,7 @@ class Basic_operation_m extends CI_Model
 									'from_zone_id' => $data['from_zone_id'],
 									'to_zone_id' => $data['to_zone_id'],
 									'minimum_rate' => $data['minimum_rate'],
+									'pickup_charges' => $data['pickup_charges'],
 									'tat' => $data['tat'],
 									'minimum_weight' => $data['minimum_weight'],
 									'mode_id' => $data['mode_id'],
@@ -916,6 +925,7 @@ class Basic_operation_m extends CI_Model
 								'from_zone_id' => $data['from_zone_id'],
 								'to_zone_id' => $data['to_zone_id'],
 								'minimum_rate' => $data['minimum_rate'],
+								'pickup_charges' => $data['pickup_charges'],
 								'minimum_weight' => $data['minimum_weight'],
 								'tat' => $data['tat'],
 								'mode_id' => $data['mode_id'],
@@ -941,6 +951,7 @@ class Basic_operation_m extends CI_Model
 						'to_zone_id' => $data['to_zone_id'],
 						'minimum_rate' => $data['minimum_rate'],
 						'minimum_weight' => $data['minimum_weight'],
+						'pickup_charges' => $data['pickup_charges'],
 						'mode_id' => $data['mode_id'],
 						'doc_type' => $data['doc_type'],
 						'tat' => $data['tat'],
@@ -1536,6 +1547,7 @@ class Basic_operation_m extends CI_Model
 											'to_zone_id' => $data['to_zone_id'],
 											'minimum_rate' => $data['minimum_rate'],
 											'minimum_weight' => $data['minimum_weight'],
+											'pickup_charges' => $data['pickup_charges'],
 											'mode_id' => $data['mode_id'],
 											'tat' => $data['tat'],
 											'doc_type' => $data['doc_type'],
@@ -1567,8 +1579,9 @@ class Basic_operation_m extends CI_Model
 										$weight_slab = $data1['weight_slab'];
 										$rate = $data1['rate'];
 										$fixed_perkg = $data1['fixed_perkg'];
+										$pickup_charges = $data1['pickup_charges'];
 
-										$get_pre_id = $this->db->query("SELECT * FROM `tbl_domestic_rate_master` WHERE `customer_id` = '$customer_id' AND `c_courier_id` = '$c_courier_id' AND `from_state_id` = '$from_state_id' AND `state_id` = '$state_id' AND `from_city_id` = '$from_city_id' AND `city_id` = '$city_id' AND `from_zone_id` = '$from_zone_id' AND `to_zone_id` = '$to_zone_id' AND `minimum_rate` = '$minimum_rate' AND `minimum_weight` = '$minimum_weight' AND `mode_id` = '$mode_id' AND `doc_type` = '$doc_type' AND `applicable_from` = '$applicable_from' AND `applicable_to` = '$applicable_to' AND `weight_range_from` LIKE '%$weight_range_from%' AND `weight_range_to` LIKE '%$weight_range_to%' AND `weight_slab` = '$weight_slab' AND `rate` = '$rate' AND `fixed_perkg` = '$fixed_perkg'")->row('rate_id');
+										$get_pre_id = $this->db->query("SELECT * FROM `tbl_domestic_rate_master` WHERE `customer_id` = '$customer_id' AND `c_courier_id` = '$c_courier_id' AND `from_state_id` = '$from_state_id' AND `state_id` = '$state_id' AND `from_city_id` = '$from_city_id' AND `city_id` = '$city_id' AND `from_zone_id` = '$from_zone_id' AND `to_zone_id` = '$to_zone_id' AND `minimum_rate` = '$minimum_rate' AND `minimum_weight` = '$minimum_weight' AND `mode_id` = '$mode_id' AND `doc_type` = '$doc_type' AND `applicable_from` = '$applicable_from' AND `applicable_to` = '$applicable_to' AND `weight_range_from` LIKE '%$weight_range_from%' AND `weight_range_to` LIKE '%$weight_range_to%' AND `weight_slab` = '$weight_slab' AND `rate` = '$rate' AND `fixed_perkg` = '$fixed_perkg' AND pickup_charges ='$pickup_charges'")->row('rate_id');
 										if (!empty($get_pre_id)) {
 											$this->basic_operation_m->delete("tbl_domestic_rate_master", "rate_id = '$get_pre_id'");
 										}
@@ -1600,6 +1613,7 @@ class Basic_operation_m extends CI_Model
 											'from_zone_id' => $data['from_zone_id'],
 											'to_zone_id' => $data['to_zone_id'],
 											'minimum_rate' => $data['minimum_rate'],
+											'pickup_charges' => $data['pickup_charges'],
 											'minimum_weight' => $data['minimum_weight'],
 											'mode_id' => $data['mode_id'],
 											'doc_type' => $data['doc_type'],
@@ -1632,8 +1646,9 @@ class Basic_operation_m extends CI_Model
 										$weight_slab = $data1['weight_slab'];
 										$rate = $data1['rate'];
 										$fixed_perkg = $data1['fixed_perkg'];
+										$pickup_charges = $data1['pickup_charges'];
 
-										$get_pre_id = $this->db->query("SELECT * FROM `tbl_domestic_rate_master` WHERE `customer_id` = '$customer_id' AND `c_courier_id` = '$c_courier_id' AND `from_state_id` = '$from_state_id' AND `state_id` = '$state_id' AND `from_city_id` = '$from_city_id' AND `city_id` = '$city_id' AND `from_zone_id` = '$from_zone_id' AND `to_zone_id` = '$to_zone_id' AND `minimum_rate` = '$minimum_rate' AND `minimum_weight` = '$minimum_weight' AND `mode_id` = '$mode_id' AND `doc_type` = '$doc_type' AND `applicable_from` = '$applicable_from' AND `applicable_to` = '$applicable_to' AND `weight_range_from` LIKE '%$weight_range_from%' AND `weight_range_to` LIKE '%$weight_range_to%' AND `weight_slab` = '$weight_slab' AND `rate` = '$rate' AND `fixed_perkg` = '$fixed_perkg'")->row('rate_id');
+										$get_pre_id = $this->db->query("SELECT * FROM `tbl_domestic_rate_master` WHERE `customer_id` = '$customer_id' AND `c_courier_id` = '$c_courier_id' AND `from_state_id` = '$from_state_id' AND `state_id` = '$state_id' AND `from_city_id` = '$from_city_id' AND `city_id` = '$city_id' AND `from_zone_id` = '$from_zone_id' AND `to_zone_id` = '$to_zone_id' AND `minimum_rate` = '$minimum_rate' AND `minimum_weight` = '$minimum_weight' AND `mode_id` = '$mode_id' AND `doc_type` = '$doc_type' AND `applicable_from` = '$applicable_from' AND `applicable_to` = '$applicable_to' AND `weight_range_from` LIKE '%$weight_range_from%' AND `weight_range_to` LIKE '%$weight_range_to%' AND `weight_slab` = '$weight_slab' AND `rate` = '$rate' AND `fixed_perkg` = '$fixed_perkg' AND pickup_charges ='$pickup_charges'")->row('rate_id');
 										if (!empty($get_pre_id)) {
 											$this->basic_operation_m->delete("tbl_domestic_rate_master", "rate_id = '$get_pre_id'");
 										}
@@ -1662,6 +1677,7 @@ class Basic_operation_m extends CI_Model
 									'city_id' => '0',
 									'from_zone_id' => $data['from_zone_id'],
 									'to_zone_id' => $data['to_zone_id'],
+									'pickup_charges' => $data['pickup_charges'],
 									'minimum_rate' => $data['minimum_rate'],
 									'minimum_weight' => $data['minimum_weight'],
 									'tat' => $data['tat'],
@@ -1694,8 +1710,9 @@ class Basic_operation_m extends CI_Model
 								$weight_slab = $data1['weight_slab'];
 								$rate = $data1['rate'];
 								$fixed_perkg = $data1['fixed_perkg'];
+								$pickup_charges = $data1['pickup_charges'];
 
-								$get_pre_id = $this->db->query("SELECT * FROM `tbl_domestic_rate_master` WHERE `customer_id` = '$customer_id' AND `c_courier_id` = '$c_courier_id' AND `from_state_id` = '$from_state_id' AND `state_id` = '$state_id' AND `from_city_id` = '$from_city_id' AND `city_id` = '$city_id' AND `from_zone_id` = '$from_zone_id' AND `to_zone_id` = '$to_zone_id' AND `minimum_rate` = '$minimum_rate' AND `minimum_weight` = '$minimum_weight' AND `mode_id` = '$mode_id' AND `doc_type` = '$doc_type' AND `applicable_from` = '$applicable_from' AND `applicable_to` = '$applicable_to' AND `weight_range_from` LIKE '%$weight_range_from%' AND `weight_range_to` LIKE '%$weight_range_to%' AND `weight_slab` = '$weight_slab' AND `rate` = '$rate' AND `fixed_perkg` = '$fixed_perkg'")->row('rate_id');
+								$get_pre_id = $this->db->query("SELECT * FROM `tbl_domestic_rate_master` WHERE `customer_id` = '$customer_id' AND `c_courier_id` = '$c_courier_id' AND `from_state_id` = '$from_state_id' AND `state_id` = '$state_id' AND `from_city_id` = '$from_city_id' AND `city_id` = '$city_id' AND `from_zone_id` = '$from_zone_id' AND `to_zone_id` = '$to_zone_id' AND `minimum_rate` = '$minimum_rate' AND `minimum_weight` = '$minimum_weight' AND `mode_id` = '$mode_id' AND `doc_type` = '$doc_type' AND `applicable_from` = '$applicable_from' AND `applicable_to` = '$applicable_to' AND `weight_range_from` LIKE '%$weight_range_from%' AND `weight_range_to` LIKE '%$weight_range_to%' AND `weight_slab` = '$weight_slab' AND `rate` = '$rate' AND `fixed_perkg` = '$fixed_perkg' AND pickup_charges ='$pickup_charges'")->row('rate_id');
 								if (!empty($get_pre_id)) {
 									$this->basic_operation_m->delete("tbl_domestic_rate_master", "rate_id = '$get_pre_id'");
 								}
@@ -1722,6 +1739,7 @@ class Basic_operation_m extends CI_Model
 										'from_zone_id' => $data['from_zone_id'],
 										'to_zone_id' => $data['to_zone_id'],
 										'minimum_rate' => $data['minimum_rate'],
+										'pickup_charges' => $data['pickup_charges'],
 										'minimum_weight' => $data['minimum_weight'],
 										'tat' => $data['tat'],
 										'mode_id' => $data['mode_id'],
@@ -1753,8 +1771,9 @@ class Basic_operation_m extends CI_Model
 									$weight_slab = $data1['weight_slab'];
 									$rate = $data1['rate'];
 									$fixed_perkg = $data1['fixed_perkg'];
+									$pickup_charges = $data1['pickup_charges'];
 
-									$get_pre_id = $this->db->query("SELECT * FROM `tbl_domestic_rate_master` WHERE `customer_id` = '$customer_id' AND `c_courier_id` = '$c_courier_id' AND `from_state_id` = '$from_state_id' AND `state_id` = '$state_id' AND `from_city_id` = '$from_city_id' AND `city_id` = '$city_id' AND `from_zone_id` = '$from_zone_id' AND `to_zone_id` = '$to_zone_id' AND `minimum_rate` = '$minimum_rate' AND `minimum_weight` = '$minimum_weight' AND `mode_id` = '$mode_id' AND `doc_type` = '$doc_type' AND `applicable_from` = '$applicable_from' AND `applicable_to` = '$applicable_to' AND `weight_range_from` LIKE '%$weight_range_from%' AND `weight_range_to` LIKE '%$weight_range_to%' AND `weight_slab` = '$weight_slab' AND `rate` = '$rate' AND `fixed_perkg` = '$fixed_perkg'")->row('rate_id');
+									$get_pre_id = $this->db->query("SELECT * FROM `tbl_domestic_rate_master` WHERE `customer_id` = '$customer_id' AND `c_courier_id` = '$c_courier_id' AND `from_state_id` = '$from_state_id' AND `state_id` = '$state_id' AND `from_city_id` = '$from_city_id' AND `city_id` = '$city_id' AND `from_zone_id` = '$from_zone_id' AND `to_zone_id` = '$to_zone_id' AND `minimum_rate` = '$minimum_rate' AND `minimum_weight` = '$minimum_weight' AND `mode_id` = '$mode_id' AND `doc_type` = '$doc_type' AND `applicable_from` = '$applicable_from' AND `applicable_to` = '$applicable_to' AND `weight_range_from` LIKE '%$weight_range_from%' AND `weight_range_to` LIKE '%$weight_range_to%' AND `weight_slab` = '$weight_slab' AND `rate` = '$rate' AND `fixed_perkg` = '$fixed_perkg' AND pickup_charges ='$pickup_charges'")->row('rate_id');
 									if (!empty($get_pre_id)) {
 										$this->basic_operation_m->delete("tbl_domestic_rate_master", "rate_id = '$get_pre_id'");
 									}
@@ -1784,6 +1803,7 @@ class Basic_operation_m extends CI_Model
 									'to_zone_id' => $data['to_zone_id'],
 									'minimum_rate' => $data['minimum_rate'],
 									'minimum_weight' => $data['minimum_weight'],
+									'pickup_charges' => $data['pickup_charges'],
 									'tat' => $data['tat'],
 									'mode_id' => $data['mode_id'],
 									'doc_type' => $data['doc_type'],
@@ -1814,8 +1834,9 @@ class Basic_operation_m extends CI_Model
 								$weight_slab = $data1['weight_slab'];
 								$rate = $data1['rate'];
 								$fixed_perkg = $data1['fixed_perkg'];
+								$pickup_charges = $data1['pickup_charges'];
 
-								$get_pre_id = $this->db->query("SELECT * FROM `tbl_domestic_rate_master` WHERE `customer_id` = '$customer_id' AND `c_courier_id` = '$c_courier_id' AND `from_state_id` = '$from_state_id' AND `state_id` = '$state_id' AND `from_city_id` = '$from_city_id' AND `city_id` = '$city_id' AND `from_zone_id` = '$from_zone_id' AND `to_zone_id` = '$to_zone_id' AND `minimum_rate` = '$minimum_rate' AND `minimum_weight` = '$minimum_weight' AND `mode_id` = '$mode_id' AND `doc_type` = '$doc_type' AND `applicable_from` = '$applicable_from' AND `applicable_to` = '$applicable_to' AND `weight_range_from` LIKE '%$weight_range_from%' AND `weight_range_to` LIKE '%$weight_range_to%' AND `weight_slab` = '$weight_slab' AND `rate` = '$rate' AND `fixed_perkg` = '$fixed_perkg'")->row('rate_id');
+								$get_pre_id = $this->db->query("SELECT * FROM `tbl_domestic_rate_master` WHERE `customer_id` = '$customer_id' AND `c_courier_id` = '$c_courier_id' AND `from_state_id` = '$from_state_id' AND `state_id` = '$state_id' AND `from_city_id` = '$from_city_id' AND `city_id` = '$city_id' AND `from_zone_id` = '$from_zone_id' AND `to_zone_id` = '$to_zone_id' AND `minimum_rate` = '$minimum_rate' AND `minimum_weight` = '$minimum_weight' AND `mode_id` = '$mode_id' AND `doc_type` = '$doc_type' AND `applicable_from` = '$applicable_from' AND `applicable_to` = '$applicable_to' AND `weight_range_from` LIKE '%$weight_range_from%' AND `weight_range_to` LIKE '%$weight_range_to%' AND `weight_slab` = '$weight_slab' AND `rate` = '$rate' AND `fixed_perkg` = '$fixed_perkg' AND pickup_charges ='$pickup_charges'")->row('rate_id');
 								if (!empty($get_pre_id)) {
 									$this->basic_operation_m->delete("tbl_domestic_rate_master", "rate_id = '$get_pre_id'");
 								}
@@ -1839,6 +1860,7 @@ class Basic_operation_m extends CI_Model
 							'from_zone_id' => $data['from_zone_id'],
 							'to_zone_id' => $data['to_zone_id'],
 							'minimum_rate' => $data['minimum_rate'],
+							'pickup_charges' => $data['pickup_charges'],
 							'minimum_weight' => $data['minimum_weight'],
 							'tat' => $data['tat'],
 							'mode_id' => $data['mode_id'],
@@ -1870,8 +1892,9 @@ class Basic_operation_m extends CI_Model
 						$weight_slab = $data1['weight_slab'];
 						$rate = $data1['rate'];
 						$fixed_perkg = $data1['fixed_perkg'];
+						$pickup_charges = $data1['pickup_charges'];
 
-						$get_pre_id = $this->db->query("SELECT * FROM `tbl_domestic_rate_master` WHERE `customer_id` = '$customer_id' AND `c_courier_id` = '$c_courier_id' AND `from_state_id` = '$from_state_id' AND `state_id` = '$state_id' AND `from_city_id` = '$from_city_id' AND `city_id` = '$city_id' AND `from_zone_id` = '$from_zone_id' AND `to_zone_id` = '$to_zone_id' AND `minimum_rate` = '$minimum_rate' AND `minimum_weight` = '$minimum_weight' AND `mode_id` = '$mode_id' AND `doc_type` = '$doc_type' AND `applicable_from` = '$applicable_from' AND `applicable_to` = '$applicable_to' AND `weight_range_from` LIKE '%$weight_range_from%' AND `weight_range_to` LIKE '%$weight_range_to%' AND `weight_slab` = '$weight_slab' AND `rate` = '$rate' AND `fixed_perkg` = '$fixed_perkg'")->row('rate_id');
+						$get_pre_id = $this->db->query("SELECT * FROM `tbl_domestic_rate_master` WHERE `customer_id` = '$customer_id' AND `c_courier_id` = '$c_courier_id' AND `from_state_id` = '$from_state_id' AND `state_id` = '$state_id' AND `from_city_id` = '$from_city_id' AND `city_id` = '$city_id' AND `from_zone_id` = '$from_zone_id' AND `to_zone_id` = '$to_zone_id' AND `minimum_rate` = '$minimum_rate' AND `minimum_weight` = '$minimum_weight' AND `mode_id` = '$mode_id' AND `doc_type` = '$doc_type' AND `applicable_from` = '$applicable_from' AND `applicable_to` = '$applicable_to' AND `weight_range_from` LIKE '%$weight_range_from%' AND `weight_range_to` LIKE '%$weight_range_to%' AND `weight_slab` = '$weight_slab' AND `rate` = '$rate' AND `fixed_perkg` = '$fixed_perkg' AND pickup_charges ='$pickup_charges'")->row('rate_id');
 						if (!empty($get_pre_id)) {
 							$this->basic_operation_m->delete("tbl_domestic_rate_master", "rate_id = '$get_pre_id'");
 						}
@@ -1891,6 +1914,7 @@ class Basic_operation_m extends CI_Model
 							'from_zone_id' => $data['from_zone_id'],
 							'to_zone_id' => $data['to_zone_id'],
 							'minimum_rate' => $data['minimum_rate'],
+							'pickup_charges' => $data['pickup_charges'],
 							'minimum_weight' => $data['minimum_weight'],
 							'tat' => $data['tat'],
 							'mode_id' => $data['mode_id'],
@@ -1922,8 +1946,9 @@ class Basic_operation_m extends CI_Model
 						$weight_slab = $data1['weight_slab'];
 						$rate = $data1['rate'];
 						$fixed_perkg = $data1['fixed_perkg'];
+						$pickup_charges = $data1['pickup_charges'];
 
-						$get_pre_id = $this->db->query("SELECT * FROM `tbl_domestic_rate_master` WHERE `customer_id` = '$customer_id' AND `c_courier_id` = '$c_courier_id' AND `from_state_id` = '$from_state_id' AND `state_id` = '$state_id' AND `from_city_id` = '$from_city_id' AND `city_id` = '$city_id' AND `from_zone_id` = '$from_zone_id' AND `to_zone_id` = '$to_zone_id' AND `minimum_rate` = '$minimum_rate' AND `minimum_weight` = '$minimum_weight' AND `mode_id` = '$mode_id' AND `doc_type` = '$doc_type' AND `applicable_from` = '$applicable_from' AND `applicable_to` = '$applicable_to' AND `weight_range_from` LIKE '%$weight_range_from%' AND `weight_range_to` LIKE '%$weight_range_to%' AND `weight_slab` = '$weight_slab' AND `rate` = '$rate' AND `fixed_perkg` = '$fixed_perkg'")->row('rate_id');
+						$get_pre_id = $this->db->query("SELECT * FROM `tbl_domestic_rate_master` WHERE `customer_id` = '$customer_id' AND `c_courier_id` = '$c_courier_id' AND `from_state_id` = '$from_state_id' AND `state_id` = '$state_id' AND `from_city_id` = '$from_city_id' AND `city_id` = '$city_id' AND `from_zone_id` = '$from_zone_id' AND `to_zone_id` = '$to_zone_id' AND `minimum_rate` = '$minimum_rate' AND `minimum_weight` = '$minimum_weight' AND `mode_id` = '$mode_id' AND `doc_type` = '$doc_type' AND `applicable_from` = '$applicable_from' AND `applicable_to` = '$applicable_to' AND `weight_range_from` LIKE '%$weight_range_from%' AND `weight_range_to` LIKE '%$weight_range_to%' AND `weight_slab` = '$weight_slab' AND `rate` = '$rate' AND `fixed_perkg` = '$fixed_perkg' AND pickup_charges ='$pickup_charges'")->row('rate_id');
 						if (!empty($get_pre_id)) {
 							$this->basic_operation_m->delete("tbl_domestic_rate_master", "rate_id = '$get_pre_id'");
 						}
@@ -1947,6 +1972,7 @@ class Basic_operation_m extends CI_Model
 								'from_zone_id' => $data['from_zone_id'],
 								'to_zone_id' => $data['to_zone_id'],
 								'minimum_rate' => $data['minimum_rate'],
+								'pickup_charges' => $data['pickup_charges'],
 								'minimum_weight' => $data['minimum_weight'],
 								'tat' => $data['tat'],
 								'mode_id' => $data['mode_id'],
@@ -1979,8 +2005,9 @@ class Basic_operation_m extends CI_Model
 							$weight_slab = $data1['weight_slab'];
 							$rate = $data1['rate'];
 							$fixed_perkg = $data1['fixed_perkg'];
+							$pickup_charges = $data1['pickup_charges'];
 
-							$get_pre_id = $this->db->query("SELECT * FROM `tbl_domestic_rate_master` WHERE `customer_id` = '$customer_id' AND `c_courier_id` = '$c_courier_id' AND `from_state_id` = '$from_state_id' AND `state_id` = '$state_id' AND `from_city_id` = '$from_city_id' AND `city_id` = '$city_id' AND `from_zone_id` = '$from_zone_id' AND `to_zone_id` = '$to_zone_id' AND `minimum_rate` = '$minimum_rate' AND `minimum_weight` = '$minimum_weight' AND `mode_id` = '$mode_id' AND `doc_type` = '$doc_type' AND `applicable_from` = '$applicable_from' AND `applicable_to` = '$applicable_to' AND `weight_range_from` LIKE '%$weight_range_from%' AND `weight_range_to` LIKE '%$weight_range_to%' AND `weight_slab` = '$weight_slab' AND `rate` = '$rate' AND `fixed_perkg` = '$fixed_perkg'")->row('rate_id');
+							$get_pre_id = $this->db->query("SELECT * FROM `tbl_domestic_rate_master` WHERE `customer_id` = '$customer_id' AND `c_courier_id` = '$c_courier_id' AND `from_state_id` = '$from_state_id' AND `state_id` = '$state_id' AND `from_city_id` = '$from_city_id' AND `city_id` = '$city_id' AND `from_zone_id` = '$from_zone_id' AND `to_zone_id` = '$to_zone_id' AND `minimum_rate` = '$minimum_rate' AND `minimum_weight` = '$minimum_weight' AND `mode_id` = '$mode_id' AND `doc_type` = '$doc_type' AND `applicable_from` = '$applicable_from' AND `applicable_to` = '$applicable_to' AND `weight_range_from` LIKE '%$weight_range_from%' AND `weight_range_to` LIKE '%$weight_range_to%' AND `weight_slab` = '$weight_slab' AND `rate` = '$rate' AND `fixed_perkg` = '$fixed_perkg' AND pickup_charges ='$pickup_charges'")->row('rate_id');
 							if (!empty($get_pre_id)) {
 								$this->basic_operation_m->delete("tbl_domestic_rate_master", "rate_id = '$get_pre_id'");
 							}
@@ -2004,6 +2031,7 @@ class Basic_operation_m extends CI_Model
 								'from_zone_id' => $data['from_zone_id'],
 								'to_zone_id' => $data['to_zone_id'],
 								'minimum_rate' => $data['minimum_rate'],
+								'pickup_charges' => $data['pickup_charges'],
 								'minimum_weight' => $data['minimum_weight'],
 								'tat' => $data['tat'],
 								'mode_id' => $data['mode_id'],
@@ -2036,7 +2064,8 @@ class Basic_operation_m extends CI_Model
 							$weight_slab = $data1['weight_slab'];
 							$rate = $data1['rate'];
 							$fixed_perkg = $data1['fixed_perkg'];
-							$get_pre_id = $this->db->query("SELECT * FROM `tbl_domestic_rate_master` WHERE `customer_id` = '$customer_id' AND `c_courier_id` = '$c_courier_id' AND `from_state_id` = '$from_state_id' AND `state_id` = '$state_id' AND `from_city_id` = '$from_city_id' AND `city_id` = '$city_id' AND `from_zone_id` = '$from_zone_id' AND `to_zone_id` = '$to_zone_id' AND `minimum_rate` = '$minimum_rate' AND `minimum_weight` = '$minimum_weight' AND `mode_id` = '$mode_id' AND `doc_type` = '$doc_type' AND `applicable_from` = '$applicable_from' AND `applicable_to` = '$applicable_to' AND `weight_range_from` LIKE '%$weight_range_from%' AND `weight_range_to` LIKE '%$weight_range_to%' AND `weight_slab` = '$weight_slab' AND `rate` = '$rate' AND `fixed_perkg` = '$fixed_perkg'")->row('rate_id');
+							$pickup_charges = $data1['pickup_charges'];
+							$get_pre_id = $this->db->query("SELECT * FROM `tbl_domestic_rate_master` WHERE `customer_id` = '$customer_id' AND `c_courier_id` = '$c_courier_id' AND `from_state_id` = '$from_state_id' AND `state_id` = '$state_id' AND `from_city_id` = '$from_city_id' AND `city_id` = '$city_id' AND `from_zone_id` = '$from_zone_id' AND `to_zone_id` = '$to_zone_id' AND `minimum_rate` = '$minimum_rate' AND `minimum_weight` = '$minimum_weight' AND `mode_id` = '$mode_id' AND `doc_type` = '$doc_type' AND `applicable_from` = '$applicable_from' AND `applicable_to` = '$applicable_to' AND `weight_range_from` LIKE '%$weight_range_from%' AND `weight_range_to` LIKE '%$weight_range_to%' AND `weight_slab` = '$weight_slab' AND `rate` = '$rate' AND `fixed_perkg` = '$fixed_perkg' AND pickup_charges ='$pickup_charges'")->row('rate_id');
 							if (!empty($get_pre_id)) {
 								$this->basic_operation_m->delete("tbl_domestic_rate_master", "rate_id = '$get_pre_id'");
 							}
@@ -2057,6 +2086,7 @@ class Basic_operation_m extends CI_Model
 								'from_zone_id' => $data['from_zone_id'],
 								'to_zone_id' => $data['to_zone_id'],
 								'minimum_rate' => $data['minimum_rate'],
+								'pickup_charges' => $data['pickup_charges'],
 								'minimum_weight' => $data['minimum_weight'],
 								'tat' => $data['tat'],
 								'mode_id' => $data['mode_id'],
@@ -2089,8 +2119,9 @@ class Basic_operation_m extends CI_Model
 							$weight_slab = $data1['weight_slab'];
 							$rate = $data1['rate'];
 							$fixed_perkg = $data1['fixed_perkg'];
+							$pickup_charges = $data1['pickup_charges'];
 
-							$get_pre_id = $this->db->query("SELECT * FROM `tbl_domestic_rate_master` WHERE `customer_id` = '$customer_id' AND `c_courier_id` = '$c_courier_id' AND `from_state_id` = '$from_state_id' AND `state_id` = '$state_id' AND `from_city_id` = '$from_city_id' AND `city_id` = '$city_id' AND `from_zone_id` = '$from_zone_id' AND `to_zone_id` = '$to_zone_id' AND `minimum_rate` = '$minimum_rate' AND `minimum_weight` = '$minimum_weight' AND `mode_id` = '$mode_id' AND `doc_type` = '$doc_type' AND `applicable_from` = '$applicable_from' AND `applicable_to` = '$applicable_to' AND `weight_range_from` LIKE '%$weight_range_from%' AND `weight_range_to` LIKE '%$weight_range_to%' AND `weight_slab` = '$weight_slab' AND `rate` = '$rate' AND `fixed_perkg` = '$fixed_perkg'")->row('rate_id');
+							$get_pre_id = $this->db->query("SELECT * FROM `tbl_domestic_rate_master` WHERE `customer_id` = '$customer_id' AND `c_courier_id` = '$c_courier_id' AND `from_state_id` = '$from_state_id' AND `state_id` = '$state_id' AND `from_city_id` = '$from_city_id' AND `city_id` = '$city_id' AND `from_zone_id` = '$from_zone_id' AND `to_zone_id` = '$to_zone_id' AND `minimum_rate` = '$minimum_rate' AND `minimum_weight` = '$minimum_weight' AND `mode_id` = '$mode_id' AND `doc_type` = '$doc_type' AND `applicable_from` = '$applicable_from' AND `applicable_to` = '$applicable_to' AND `weight_range_from` LIKE '%$weight_range_from%' AND `weight_range_to` LIKE '%$weight_range_to%' AND `weight_slab` = '$weight_slab' AND `rate` = '$rate' AND `fixed_perkg` = '$fixed_perkg' AND pickup_charges ='$pickup_charges'")->row('rate_id');
 							if (!empty($get_pre_id)) {
 								$this->basic_operation_m->delete("tbl_domestic_rate_master", "rate_id = '$get_pre_id'");
 							}
@@ -2106,6 +2137,7 @@ class Basic_operation_m extends CI_Model
 						'to_zone_id' => $data['to_zone_id'],
 						'minimum_rate' => $data['minimum_rate'],
 						'minimum_weight' => $data['minimum_weight'],
+						'pickup_charges' => $data['pickup_charges'],
 						'tat' => $data['tat'],
 						'mode_id' => $data['mode_id'],
 						'doc_type' => $data['doc_type'],
@@ -2137,8 +2169,9 @@ class Basic_operation_m extends CI_Model
 					$weight_slab = $data1['weight_slab'];
 					$rate = $data1['rate'];
 					$fixed_perkg = $data1['fixed_perkg'];
+					$pickup_charges = $data1['pickup_charges'];
 
-					$get_pre_id = $this->db->query("SELECT * FROM `tbl_domestic_rate_master` WHERE `customer_id` = '$customer_id' AND `c_courier_id` = '$c_courier_id' AND `from_state_id` = '$from_state_id' AND `state_id` = '$state_id' AND `from_city_id` = '$from_city_id' AND `city_id` = '$city_id' AND `from_zone_id` = '$from_zone_id' AND `to_zone_id` = '$to_zone_id' AND `minimum_rate` = '$minimum_rate' AND `minimum_weight` = '$minimum_weight' AND `mode_id` = '$mode_id' AND `doc_type` = '$doc_type' AND `applicable_from` = '$applicable_from' AND `applicable_to` = '$applicable_to' AND `weight_range_from` LIKE '%$weight_range_from%' AND `weight_range_to` LIKE '%$weight_range_to%' AND `weight_slab` = '$weight_slab' AND `rate` = '$rate' AND `fixed_perkg` = '$fixed_perkg'")->row('rate_id');
+					$get_pre_id = $this->db->query("SELECT * FROM `tbl_domestic_rate_master` WHERE `customer_id` = '$customer_id' AND `c_courier_id` = '$c_courier_id' AND `from_state_id` = '$from_state_id' AND `state_id` = '$state_id' AND `from_city_id` = '$from_city_id' AND `city_id` = '$city_id' AND `from_zone_id` = '$from_zone_id' AND `to_zone_id` = '$to_zone_id' AND `minimum_rate` = '$minimum_rate' AND `minimum_weight` = '$minimum_weight' AND `mode_id` = '$mode_id' AND `doc_type` = '$doc_type' AND `applicable_from` = '$applicable_from' AND `applicable_to` = '$applicable_to' AND `weight_range_from` LIKE '%$weight_range_from%' AND `weight_range_to` LIKE '%$weight_range_to%' AND `weight_slab` = '$weight_slab' AND `rate` = '$rate' AND `fixed_perkg` = '$fixed_perkg' AND pickup_charges = '$pickup_charges'")->row('rate_id');
 					if (!empty($get_pre_id)) {
 						$this->basic_operation_m->delete("tbl_domestic_rate_master", "rate_id = '$get_pre_id'");
 					}

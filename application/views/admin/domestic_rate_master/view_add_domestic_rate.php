@@ -169,11 +169,15 @@
                                       </div>  
                                       <label for="ac_name" class="col-sm-3 col-form-label">Minimum Freight</label>
                                       <div class="col-sm-3">
-									                     <input type="number" step="any" name="minimum_rate" class="form-control" id="minimum_rate" placeholder="Minimum Freight">
+									                     <input type="text" step="any" name="minimum_rate" class="form-control valumetric_actual" id="minimum_rate" placeholder="Minimum Freight">
                                      </div>   		
                                      <label for="ac_name" class="col-sm-3 col-form-label">Minimum Weight</label>
                                       <div class="col-sm-3">
-									                     <input type="number" step="any" name="minimum_weight" class="form-control" id="minimum_weight" placeholder="Minimum Weight">						     
+									                     <input type="text" step="any" name="minimum_weight" class="form-control valumetric_actual" id="minimum_weight" placeholder="Minimum Weight">						     
+                                  </div>
+                                     <label for="ac_name" class="col-sm-3 col-form-label">Pickup Charges</label>
+                                      <div class="col-sm-3">
+									                     <input type="text" step="any" name="pickup_charges" class="form-control valumetric_actual" id="pickup_charges" placeholder="Pickup Charges">						     
                                   </div>
                                   </div>
                                   <div class="form-group row">
