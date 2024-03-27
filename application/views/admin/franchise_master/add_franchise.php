@@ -186,10 +186,10 @@
                                             <select class="form-control filter-data" name="franchise_booking_type" id="franchise_type">
                                                 <option value="">Franchise Booking Type</option>
                                                             <?php $key =1; foreach (bill_type as $value):
-                                                                  if($key !=3){
+                                                                
                                                                 ?>
                                                                         <option value="<?php echo $key; ?>" ><?php echo $value; ?></option>
-                                                            <?php  $key++;}endforeach; ?>
+                                                            <?php  $key++;endforeach; ?>
                                                 
                                             </select>
                                         </div>
@@ -596,7 +596,7 @@
         $('#franchise_type').change(function() {
             var deliveryYes = $(this).val();
         //    alert(deliveryYes);
-            if(deliveryYes == '1'){
+            if(deliveryYes == '1' || deliveryYes == '3'){
                 $(".show").show();
                 $("#credit_limit").prop('required',true);
                 $("#credit_days").prop('required',true);
