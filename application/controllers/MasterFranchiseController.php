@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit ('No direct script access allowed');
 error_reporting(E_ALL);
-ini_set('display_errors', 1);
+ini_set('display_errors', 0);
 class MasterFranchiseController extends CI_Controller
 {
 
