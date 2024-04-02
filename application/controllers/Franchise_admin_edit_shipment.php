@@ -21,7 +21,7 @@ class Franchise_admin_edit_shipment extends CI_Controller {
 		{	
 			// print_r($all_data);die;
 			$filter_value = 	$_POST['filter_value'];
-		    $data['domestic_booking'] = $this->db->query("select * from tbl_domestic_booking where pod_no = '$filter_value'")->result_array();
+		    $data['domestic_booking'] = $this->db->query("select * from tbl_domestic_booking where pod_no = '$filter_value' AND branch_id = '0' ")->result_array();
 			// echo $this->db->last_query();die;
 		}else{
 		    $data['domestic_booking'] = array();   
@@ -667,6 +667,28 @@ class Franchise_admin_edit_shipment extends CI_Controller {
 					// echo '<pre>';print_r($data);die;
 					$query = $this->basic_operation_m->update('tbl_domestic_booking', $data, $whr);
 									
+
+					if(!empty($this->input->post('lable1'))&&$this->input->post('charges1')){
+						$data = array(
+							'lable1' => $this->input->post('lable1'),
+							'charges1' => $this->input->post('charges1')
+						);
+						$this->db->update('tbl_franchise_comission', $data,['pod_no'=>$this->input->post('awn')]);
+					}
+					if(!empty($this->input->post('lable2'))&&$this->input->post('charges2')){
+						$data = array(
+							'lable2' => $this->input->post('lable2'),
+							'charges2' => $this->input->post('charges2')
+						);
+						$this->db->update('tbl_franchise_comission', $data,['pod_no'=>$this->input->post('awn')]);
+					}
+					if(!empty($this->input->post('lable3'))&&$this->input->post('charges3')){
+						$data = array(
+							'lable3' => $this->input->post('lable3'),
+							'charges3' => $this->input->post('charges3')
+						);
+						$this->db->update('tbl_franchise_comission', $data,['pod_no'=>$this->input->post('awn')]);
+					}
 
 					$weight_data = array(
 						'per_box_weight_detail' => $all_data2['per_box_weight_detail'],
