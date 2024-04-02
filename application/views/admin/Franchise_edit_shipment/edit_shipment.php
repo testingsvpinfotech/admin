@@ -538,6 +538,43 @@
                                                     <input type="number"  class="form-control" name="fuel_subcharges" value="<?php echo $booking->fuel_subcharges; ?>" id="fuel_charges" >
                                                 </div>
                                             </div>
+
+                                            <?php
+                                                if($booking->bnf_customer_id !=0){
+												?>
+                                            <div class="form-group row">
+                                                
+												
+												<label  class="col-sm-3 col-form-label">Lable	</label>
+												<div class="col-sm-3">
+													<input type="text"  class="form-control txtOnly" name="lable1"  value="<?php echo (isset($adhoc_lable[0]))?$adhoc_lable[0]:''; ?>"  id="lable">
+												</div>
+												<label  class="col-sm-3 col-form-label">Charges</label>
+												<div class="col-sm-3">
+													<input type="number" step="any" class="form-control" name="charges1" value="<?php echo (isset($adhoc_lable[0]))?$adhoc_lable[0]:''; ?>" id="lcharges1">
+												</div>
+											</div>
+											<div class="form-group row">
+												<label  class="col-sm-3 col-form-label">Lable	</label>
+												<div class="col-sm-3">
+													<input type="text"  class="form-control txtOnly" name="lable2" value="<?php echo (isset($adhoc_lable[1]))?$adhoc_lable[1]:''; ?>"  id="lable">
+												</div>
+												<label  class="col-sm-3 col-form-label">Charges</label>
+												<div class="col-sm-3">
+													<input type="number" step="any" class="form-control" name="charges2" value="<?php echo (isset($adhoc_lable[1]))?$adhoc_lable[1]:''; ?>" id="lcharges2">
+												</div>
+											</div>
+											<div class="form-group row">
+												<label  class="col-sm-3 col-form-label">Lable	</label>
+												<div class="col-sm-3">
+													<input type="text"  class="form-control txtOnly" name="lable3" value="<?php echo (isset($adhoc_lable[2]))?$adhoc_lable[2]:''; ?>"  id="lable">
+												</div>
+												<label  class="col-sm-3 col-form-label">Charges</label>
+												<div class="col-sm-3">
+													<input type="number" step="any" class="form-control" name="charges3" value="<?php echo (isset($adhoc_lable[2]))?$adhoc_lable[2]:''; ?>" id="lcharges3">
+												</div>
+											</div>
+                                            <?php } ?>
                                         </div>
                                     </div>
                                 </div>
