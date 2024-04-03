@@ -44,27 +44,15 @@ class Admin_domestic_booking extends CI_Controller {
 			
 			if($_SESSION['userType'] == 1 || $_SESSION['userType'] ==10)
 			{
-				$where = array(
-				'customer_id'=>$this->input->post('customer_account_id'),
-				// 'branch_id'=>$this->input->post('branch_id'),
-				'invoice_generated_status'=>0,
-				'booking_date >='=>$fromDate,
-				'booking_date <='=>$toDate,
-				'dispatch_details !=' => 'CASH',
-				'dispatch_details !=' => 'TOPAY'
-				);
+				$customer = $this->input->post('customer_account_id');
+				 $where = "(customer_id = '$customer' OR bnf_customer_id = '$customer') AND invoice_generated_status = '0' AND 
+				 booking_date >='$fromDate' AND booking_date <='$toDate' AND dispatch_details != 'CASH' AND dispatch_details !='TOPAY'";
 				$data['getAllInvoices'] = $this->booking_model->get_domestic_invoice_details($where);
 			}
 			else
-			{
-				$where = array('customer_id'=>$this->input->post('customer_account_id'),
-				'branch_id'=>$this->input->post('branch_id'),
-				'invoice_generated_status'=>0,
-				'booking_date >='=>$fromDate,
-				'booking_date <='=>$toDate,
-				'dispatch_details !=' => 'CASH',
-				'dispatch_details !=' => 'TOPAY'
-				);
+			{$customer = $this->input->post('customer_account_id');
+				$where = "(customer_id = '$customer' OR bnf_customer_id = '$customer') AND invoice_generated_status = '0' AND 
+				 booking_date >='$fromDate' AND booking_date <='$toDate' AND dispatch_details != 'CASH' AND dispatch_details !='TOPAY'";
 				$data['getAllInvoices'] = $this->booking_model->get_domestic_invoice_details($where);
 			}
 			// echo $this->db->last_query();die;
@@ -76,7 +64,7 @@ class Admin_domestic_booking extends CI_Controller {
 				
 			$customer_id = $this->input->post('customer_id');
 			$company_id = $this->input->post('company_id');
-			$whr = array('customer_id'=>$customer_id);
+			$whr = array('customer_id'=>$this->input->post('customer_account_id'));
 			$data['customer_details'] = $this->basic_operation_m->get_table_row('tbl_customers',$whr);
 			$fromDate = $this->input->post('from');
 			$toDate = $this->input->post('to');
