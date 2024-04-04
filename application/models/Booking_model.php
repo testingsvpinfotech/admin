@@ -203,6 +203,16 @@ class Booking_model extends CI_Model {
 		$query=$this->db->get();	
 		return $query->result_array();
 	}
+	public function select_domestic_invoice_details1($whrCon)
+	{
+		$this->db->select('*');
+		$this->db->from('tbl_franchise_invoice');			
+		$this->db->where($whrCon);
+		$this->db->order_by('inc_num','DESC');
+
+		$query=$this->db->get();	
+		return $query->result_array();
+	}
 	public function show_domestic_payment_history($user_id)
 	{
 		$this->db->select('tbl_domestic_invoice_payments.*, tbl_domestic_invoice.invoice_number, tbl_domestic_invoice.customer_name');

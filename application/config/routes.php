@@ -1039,3 +1039,12 @@ $route['admin/commission-master-view-groups'] = 'Admin_Commission_master/view_al
 $route['admin/commission-master-add/(:num)'] = 'Admin_Commission_master/add/$1';
 $route['admin/commission-master-edit/(:num)'] = 'Admin_Commission_master/edit/$1';
 $route['admin/commission-master-delete/(:num)'] = 'Admin_Commission_master/delete/$1';
+
+//  franchise billing 
+
+$route['admin/list-domestic-billing'] 		= 'Franchise_customer_billing/index';
+$route['admin/franchise-domestic-invoice'] 		= 'Franchise_customer_billing/invoice';
+$route['admin/show-edit-franchise-invoice/(:num)/(:num)'] = 'Franchise_customer_billing/invoice_edit/$1/$2';
+$route['admin/edit-franchise-invoice/(:num)']   = 'Franchise_customer_billing/save_edit/$1';
+$route['admin/list-franchise-finalInvoice'] 				 = 'Franchise_customer_billing/finalInvoice';
+$route['admin/invoice-franchise-view/(:num)/(:num)'] 			 = 'Franchise_customer_billing/invoice_view/$1/$2';
