@@ -129,7 +129,7 @@ class Admin_delivery_update extends CI_Controller
 						// echo "<pre>"; print_r($booking_data); die;
 
 						if ($booking_data->dispatch_details == "TOPAY" || $booking_data->dispatch_details == "ToPay") {
-							$branch_info = $this->basic_operation_m->getAll('tbl_branch', array('branch_id' => $booking_data->branch_id))->row();
+							$branch_info = $this->basic_operation_m->getAll('tbl_branch', array('branch_id' => 1))->row();
 							$code = $this->booking_model->get_invoice_max_id('tbl_domestic_invoice', 'invoice_no', substr($branch_info->branch_code, -2), $booking_data->dispatch_details);
 							if($booking_data->bnf_customer_id !=0){ $status1 = 1;}else{$status1 =0;}
 							// print_r($status1);die;
@@ -185,6 +185,7 @@ class Admin_delivery_update extends CI_Controller
 							// echo "<pre>"; print_r($invoice); die;
 
 							$this->db->insert('tbl_domestic_invoice', $invoice);
+							// echo $this->db->last_query();die;
 							$invoice_id = $this->db->insert_id();
 
 							if (!empty($invoice_id)) {
@@ -214,6 +215,7 @@ class Admin_delivery_update extends CI_Controller
 								$invoice_detail['sub_total'] = $booking_data->sub_total;
 
 								$this->db->insert('tbl_domestic_invoice_detail', $invoice_detail);
+								// echo $this->db->last_query();die;
 							}
 						}
 					}

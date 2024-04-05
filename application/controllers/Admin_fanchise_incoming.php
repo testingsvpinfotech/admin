@@ -146,7 +146,7 @@ class Admin_fanchise_incoming extends CI_Controller{
 					$resAct		=	$this->db->query("update tbl_domestic_menifiest set reciving_status = '1' where bag_no='$bag_no'");
                     
 							$awb_nos = $this->db->query("select pod_no from tbl_domestic_bag where bag_id = '$bag_no'")->result();
-
+                           
 							foreach($awb_nos as $key=>$value){
 								date_default_timezone_set('Asia/Kolkata'); 
                                  $date = date("Y-m-d H:i:s"); // time in India
@@ -159,6 +159,7 @@ class Admin_fanchise_incoming extends CI_Controller{
 									'tracking_date'=>$date,
 								 );
 								 $this->basic_operation_m->insert('tbl_domestic_tracking', $data);
+							
 								 $username	=	$this->session->userdata("userName");
 								 $whr 		= 	array('username'=>$username);
 								 $res		=	$this->basic_operation_m->getAll('tbl_users',$whr);
@@ -177,6 +178,7 @@ class Admin_fanchise_incoming extends CI_Controller{
 									'branch_in_scan'=>'0'
 								);
 								$this->basic_operation_m->insert('tbl_domestic_stock_history', $stock);
+									//  echo $this->db->last_query();die;
 							}
 				}
 				$this->db->trans_complete();
