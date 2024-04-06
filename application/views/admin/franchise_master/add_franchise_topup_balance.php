@@ -29,6 +29,14 @@
           <div class="col-12 col-md-12 mt-3">
             <div class="card p-4">
               <div class="card-body">
+              <?php if ($this->session->flashdata('notify') != '') { ?>
+										<div class="alert <?php echo $this->session->flashdata('class'); ?> alert-colored">
+											<?php echo $this->session->flashdata('notify'); ?>
+										</div>
+										<?php unset($_SESSION['class']);
+										unset($_SESSION['notify']);
+									} ?>
+
                 <form action="<?php echo base_url(); ?>admin/franchise-topup-balance" enctype="multipart/form-data"
                   method="POST">
                   <div class="" style="margin-bottom:20px; background-color:#1e3d5d;color:#fff;padding:10px;">
@@ -81,6 +89,14 @@
                   </div>
 
                   <div class="row mt-2">
+                   
+                    <div class="col-md-3 form-group">
+                      <label>Franchise Type</label>
+                      <select class="form-control" name="franchise_type" required>
+                        <option value="Preapid">Preapid</option>
+                        <option value="Credit">Credit</option>
+                      </select>
+                    </div>
                     <div class="col-md-3 form-group">
                       <label>Amount</label>
                       <input type="text" class="form-control" name="amount" placeholder="Enter Amount" value=""
@@ -164,7 +180,7 @@
               console.log(r);
 
               var customer_name = '<label>Customer Name :</label><input type="text" class="form-control" name="customer_name"  value="' + r.customer_name + '" readonly>';
-              var customer_id = '<input type="text" class="form-control" name="customer_id"  value="' + r.customer_id + '" readonly>';
+              var customer_id = '<input type="hidden" class="form-control" name="customer_id"  value="' + r.customer_id + '" readonly>';
               var email = '<label>Email :</label><input type="text" class="form-control" name="email"  value="' + r.email + '" readonly>';
               var phone = '<label>Phone :</label><input type="text" class="form-control" name="phone" value="' + r.phone + '" readonly>';
               var pincode = '<label>Pincode :</label><input type="text" class="form-control" name="pincode"  value="' + r.pincode + '" readonly>';

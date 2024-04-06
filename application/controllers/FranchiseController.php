@@ -790,6 +790,46 @@ class FranchiseController extends CI_Controller
                 $franchise_id = 'BFT1000' . $id;
             }
 
+            if($this->input->post('franchise_type')=="Credit"){
+                  $customer_id = $this->input->post('customer_id');
+                  $inputAmount = $this->input->post('amount');
+                  $franchise = $this->db->query("SELECT * FROM tbl_franchise WHERE fid ='$customer_id'")->row();
+                  $credit_limit = $franchise->credit_limit;
+                  $utilize_amount = $franchise->credit_limit_utilize;
+                  $balance_amount = $credit_limit - $utilize_amount;
+                  $EXtnedAmount = $inputAmount + $balance_amount;
+                  if($credit_limit>=$EXtnedAmount){
+                    $UpdateAmount = $franchise->credit_limit_utilize - $inputAmount;
+                    $this->db->update('tbl_franchise',['credit_limit_utilize'=>$UpdateAmount],['fid'=>$customer_id]);
+                    $data = array(
+                        'franchise_id' => $this->input->post('franchise_id'),
+                        'customer_id' => $this->input->post('customer_id'),
+                        'transaction_id' => $franchise_id,
+                        'payment_date' => $date,
+                        'credit_amount' => $this->input->post('amount'),
+                        'balance_amount' => $UpdateAmount,
+                        'payment_mode' => $this->input->post('payment_mode'),
+                        'bank_name' => $this->input->post('bank_name'),
+                        'status' => 1,
+                        'franchise_type' => 1,
+                        'refrence_no' => $this->input->post('Refrence_number')
+                    );
+                    $result = $this->db->insert('franchise_topup_balance_tbl', $data);
+                    $msg = 'Franchise Credit limit updated';
+                    $class = 'alert alert-success alert-dismissible';
+                    $this->session->set_flashdata('notify', $msg);
+                    $this->session->set_flashdata('class', $class);
+                    redirect(base_url() . 'admin/franchise-topup-balance');
+                  }else{
+                    $msg = 'Please check Franchise Billing Amount.';
+                    $class = 'alert alert-danger alert-dismissible';
+                    $this->session->set_flashdata('notify', $msg);
+                    $this->session->set_flashdata('class', $class);
+                    redirect(base_url() . 'admin/franchise-topup-balance');
+                  }
+
+
+            }else{
             $fdata = $this->db->get_where('tbl_customers', ['customer_id' => $this->input->post('customer_id')])->row();
            
             if ($this->input->post('payment_mode') == 'debit') {
@@ -893,7 +933,7 @@ class FranchiseController extends CI_Controller
                 $this->session->set_flashdata('class', $class);
                 redirect(base_url() . 'admin/view-franchise-topup-data');
             }
-           
+        }
 
         } else {
 
