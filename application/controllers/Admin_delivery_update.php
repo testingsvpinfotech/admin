@@ -131,9 +131,9 @@ class Admin_delivery_update extends CI_Controller
 						if ($booking_data->dispatch_details == "TOPAY" || $booking_data->dispatch_details == "ToPay") {
 							$branch_info = $this->basic_operation_m->getAll('tbl_branch', array('branch_id' => 1))->row();
 							$code = $this->booking_model->get_invoice_max_id('tbl_domestic_invoice', 'invoice_no', substr($branch_info->branch_code, -2), $booking_data->dispatch_details);
-							if($booking_data->bnf_customer_id !=0){ $status1 = 1;}else{$status1 =0;}
+							// if($booking_data->bnf_customer_id !=0){ $status1 = 1;}else{$status1 =0;}
 							// print_r($status1);die;
-							  TopayDeduct($selected_dockets,$status1);
+							//   TopayDeduct($selected_dockets,$status1);
 							$date = date('Y-m-d');
 							if (date('m', strtotime($date)) <= 3) {
 								$year = (date('Y') - 1) . '-' . (date('Y'));
