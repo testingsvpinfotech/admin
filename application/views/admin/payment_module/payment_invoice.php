@@ -48,6 +48,10 @@ textarea:focus {
                               <form role="form" action="admin/show-payment-invoice-list" method="post" autocomplete="off">
                                   <div class="col-12">
                                     <div class="form-row">
+                                            <div class="col-2 mb-3">
+                                                <label for="username">Franchise Topay Invoice</label><br>
+                                                <input type="checkbox" id="invoice_access" name="invoice_access" value = "0">
+                                            </div>										 
                                             <div class="col-3 mb-3">
                                                 <label for="username">Customer Name</label>
                                                 <select class="form-control"  name="customer_account_id" id="customer_account_id">
@@ -69,6 +73,7 @@ textarea:focus {
                                             
                                             <div class="col-3 mb-3">
                                                  <input type="submit" name="submit" style="margin-top: 26px;" value="Search" class="btn btn-sm btn-primary">
+												 <a href="<?= base_url('admin/list-payments-invoice');?>" style="margin-top: 26px;" class="btn btn-sm btn-danger">Reset</a>
                                              </div>
                                       </div>
                                  
@@ -295,5 +300,12 @@ console.log("============"+id);
     });
 	
 	$("#customer_account_id").select2();
+	$('#invoice_access').change(function(){
+	   if($('#invoice_access').is(':checked')){
+	        $('#invoice_access').val(1);
+	   }else{
+            $('#invoice_access').val(0);
+	   }
+	});
     
 </script>

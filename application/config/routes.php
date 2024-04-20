@@ -1048,3 +1048,8 @@ $route['admin/show-edit-franchise-invoice/(:num)/(:num)'] = 'Franchise_customer_
 $route['admin/edit-franchise-invoice/(:num)']   = 'Franchise_customer_billing/save_edit/$1';
 $route['admin/list-franchise-finalInvoice'] 				 = 'Franchise_customer_billing/finalInvoice';
 $route['admin/invoice-franchise-view/(:num)/(:num)'] 			 = 'Franchise_customer_billing/invoice_view/$1/$2';
+
+
+// Franchise delivery payment collection report
+$route['admin/view-domestic-topay-shipment']		= 'Admin_domestic_shipment_manager/view_domestic_topay_shipment';
+$route['admin/view-domestic-topay-shipment/(:num)']		= 'Admin_domestic_shipment_manager/view_domestic_topay_shipment/$1';

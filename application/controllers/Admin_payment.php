@@ -186,8 +186,10 @@ class Admin_payment extends CI_Controller {
    {
 	   if (isset($_POST['submit'])) 
 	   {
+			$invoice_access =$this->input->post('invoice_access');		   
 			$customer_id =$this->input->post('customer_account_id');		   
 			//$where = array('customer_id'=>$this->input->post('customer_account_id'),);
+		
 			
 			$query_alerdy_map_invoice= "SELECT * FROM  tbl_invoice_payments  WHERE customer_id='$customer_id' AND status='1'";
 			$data['alerdy_map_invoice'] = $this->basic_operation_m->get_query_result_array($query_alerdy_map_invoice);
@@ -206,7 +208,11 @@ class Admin_payment extends CI_Controller {
 			$query_int = "SELECT id,invoice_number,invoice_date,cgst_amount,sgst_amount,igst_amount,grand_total,customer_name,customer_id,gstno FROM tbl_international_invoice  WHERE customer_id='$customer_id' $whr_con ";
 			$data['inv_list_int'] = $this->basic_operation_m->get_query_result_array($query_int);
 			
+			if($invoice_access==1){
+				$query_dom = "SELECT id,invoice_number,invoice_date,cgst_amount,sgst_amount,igst_amount,grand_total,customer_name,customer_id,gstno FROM tbl_domestic_invoice  WHERE franchise_id='$customer_id' $whr_con ";
+			}else{
 			$query_dom = "SELECT id,invoice_number,invoice_date,cgst_amount,sgst_amount,igst_amount,grand_total,customer_name,customer_id,gstno FROM tbl_domestic_invoice  WHERE customer_id='$customer_id' $whr_con ";
+			}
 			$data['inv_list_dom'] = $this->basic_operation_m->get_query_result_array($query_dom);
 			
 			if(!empty($query_int))
