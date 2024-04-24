@@ -2041,4 +2041,23 @@ jQuery(document).ready(function () {
 		}
 	});
     /*########################################################## Customer Master End ############################## */
+    /*##########################################################  Master End ############################## */
+	function GenareteInvoice(pod_no){
+		$.ajax({
+			type: 'POST',
+			url: 'Admin_domestic_shipment_manager/getRecitNO',
+			data: {pod_no:pod_no},
+			dataType: "json",
+			success: function (d) {     
+				$('#amount').val(d.grand_total);
+				$('#ResciptNO').val(d.ResciptNO);
+				$('#pod_no').val(d.pod_no);
+				$('#pay_amount').modal({backdrop: 'static', keyboard: false});
+				$("#pay_amount").modal('show');
+				
+			}
+		});
+	 }
+	
+    /*########################################################## Customer Master End ############################## */
 	

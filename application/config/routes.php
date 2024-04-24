@@ -1053,3 +1053,6 @@ $route['admin/invoice-franchise-view/(:num)/(:num)'] 			 = 'Franchise_customer_b
 // Franchise delivery payment collection report
 $route['admin/view-domestic-topay-shipment']		= 'Admin_domestic_shipment_manager/view_domestic_topay_shipment';
 $route['admin/view-domestic-topay-shipment/(:num)']		= 'Admin_domestic_shipment_manager/view_domestic_topay_shipment/$1';
+// Franchise delivery payment collection report
+$route['admin/view-topay-billing']		= 'Admin_domestic_shipment_manager/view_topay_billing';
+$route['admin/admin/view-topay-billing/(:num)']		= 'Admin_domestic_shipment_manager/view_topay_billing/$1';

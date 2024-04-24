@@ -131,10 +131,9 @@
 												<td style="width: 15%;"><?php echo $value['invoice_no1'];?></td>
 												<td style="width: 11%;"><?php echo date('d-m-Y',strtotime($value['invoice_date']));?></td>
 												<td><?php if($value['billing_status']==0){echo 'Pending';}else{echo 'Received';}?></td>
-												<td></td>											
-												<td></td>											
-												<td></td>											
-												<td></td>											
+												<td style="width: 15%;"><?php if($value['billing_status']==1){ echo date('d-m-Y',strtotime($value['payment_date']));}?></td>											
+												<td style="width: 15%;"><?php if($value['billing_status']==1){ echo $value['description'];}?></td>																	
+												<td><?php if($value['billing_status']==1 && $value['approve_by']!=0){ echo $this->db->query("SELECT * FROM tbl_users WHERE user_id='".$value['approve_by']."'")->row('username'); }?></td>										
 											 </tr>
 									<?php 
 										$i++;
